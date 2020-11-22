@@ -5,6 +5,7 @@
 
 using namespace std;
 
+#define DEBUG 0
 #define FLAG -1000
 
 int lis(int arr[], int n) 
@@ -29,7 +30,35 @@ int lis(int arr[], int n)
   
     /* Free memory to avoid memory leak */
     free(lis); 
-  
+
+    vector<int> head;
+    int size_head = 1;
+    head.push_back(arr[0]);
+    for(i = 1; i < n; i++) {
+        if(DEBUG) printf("analisando: %d\n", arr[i]);
+        for(j = 0; j <= size_head; j++) {
+            if(j == size_head) {
+                if(DEBUG) printf("caso 1\n");
+                head.push_back(arr[i]);
+                size_head++;
+                break;
+            }
+            // if(arr[i] < head[j]) break;
+            if(arr[i] <= head[j]) {
+                if(DEBUG) printf("caso 2\n");
+                continue;
+            }
+            if(arr[i] > head[j]) {
+                if(DEBUG) printf("caso 4: %d > %d\n", arr[i], head[j]);
+                head[j] = arr[i];
+                break;
+            }
+        }
+    }
+
+    if(DEBUG) printf("SIZE HEAD: %d\n", size_head);
+
+    printf("%d\n", size_head);
     return max; 
 } 
 
@@ -106,6 +135,21 @@ void merge_sort(int vector[], int size, int low, int high, int vector_pair[]){
     }
 }
 
+void merge_part_two(int vector[], int vector_pair[], int size) {
+    int temp;
+    for(int i = 0; i < size-1; i++) {
+        for(int j = 0; j < size-i-1; j++) {
+            if(vector[j] == vector[j+1]) {
+                if(vector_pair[j] < vector_pair[j+1]) {
+                    temp = vector_pair[j];
+                    vector_pair[j] = vector_pair[j+1];
+                    vector_pair[j+1] = temp;
+                }
+            }
+        }
+    }
+}
+
 
 int russian_nest_dolls(){
 	int number_of_dolls;
@@ -129,13 +173,14 @@ int russian_nest_dolls(){
 
 	merge_sort(dolls_widths, number_of_dolls, 0, number_of_dolls-1, dolls_heights);
 
-    printf("LIS: %d\n", lis(dolls_heights, number_of_dolls));
-	return number_of_dolls-lis(dolls_heights, number_of_dolls)+1;
+    merge_part_two(dolls_widths, dolls_heights, number_of_dolls);
+
+	return lis(dolls_heights, number_of_dolls);
 }
 
 int main(void) {
 	int number_of_test_cases;
     cin >> number_of_test_cases;
-    for(int i = 0; i < number_of_test_cases; i++) printf("RESULTADO: %d\n", russian_nest_dolls());
+    for(int i = 0; i < number_of_test_cases; i++) printf("%d\n", russian_nest_dolls());
 	return 0;
 }
