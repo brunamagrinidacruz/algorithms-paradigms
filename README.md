@@ -31,4 +31,4 @@ Teoria dos numeros:
 
 ---
 
-Project for Advanced Algorithms and Applications (SCC0218) - Computer Science @ Instituto de Ciências Matemáticas e de Computação (ICMC) - Universidade de São Paulo (USP). São Carlos, Brazil, 2023.
+Project for Advanced Algorithms and Applications (SCC0218) - Computer Science @ Instituto de Ciências Matemáticas e de Computação (ICMC) - Universidade de São Paulo (USP). São Carlos, Brazil, 2020.
