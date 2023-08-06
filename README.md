@@ -9,23 +9,29 @@ Backtracking:
 - Eight
 - Playing with Wheels
 - Rat in a Maze
+  
 Greedy Algorithms
 - Coin-collector
 - Station Balance
-Divisão e Conquista:
+  
+Divide and Conquer:
 - Inversoes
 - The Playboy Chimp
 - Solve It
-Programação Dinâmica
+  
+Dynamic Programming
 - Change
 - Russian Nest Dolls
 - Suitcase Weight
+  
 Balance:
 - Stable Marriage Problem
+  
 String: 
 - KMP
 - Edit Distance
-Teoria dos numeros: 
+  
+Number Theory: 
 - The Factorial Function N!
 - Factors and Factorials
 
