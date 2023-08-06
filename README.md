@@ -1,4 +1,4 @@
-# Alrotihms Paradigms
+# Algorithms Paradigms
 
 Solved classic and novel problems in computing that require the analysis of different solutions and programming paradigms, as brute-force, divide and conquer, transform and conquer, reduce and conquer, dynamic programming and backtracking paradigms, also trees, graphs and string processing.
 
